@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # form_test
 
 > A Vue.js project
@@ -28,3 +29,7 @@ npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+=======
+# form_submit
+基于node.js+vue.js+koa2+typeorm的表单提交demo。
+>>>>>>> 505eb6474a81e55e4cadc66b972b57adb859e5e8
