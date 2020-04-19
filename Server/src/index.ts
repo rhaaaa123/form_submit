@@ -25,7 +25,7 @@ createConnection()
 		  }
 		});
 		*/
-		
+		//但是运行中还是会报错，需要用以下方式
     	app.use(cors({
     		origin:  'http://localhost:8080', // 允许这个域名的 跨域请求
 		    exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
@@ -53,6 +53,7 @@ createConnection()
     	    	//console.log("chenggg")
     	    })
             */
+        //用路由接收post数据
         router.post('/', async (ctx, next) => {
 			let postParam = await ctx.request.body
 			console.log(postParam)
