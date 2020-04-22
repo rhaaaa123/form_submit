@@ -1,7 +1,7 @@
 <template>
   <div id = "form_submit">
     <h1>{{project}}方案提交</h1>
-    <form @submit.prevent = "onSubmit">
+    <form @submit.prevent = "onSubmit($event)">
       <div>
         *方案标题：
         <input type="text" v-model = "solution.title" name="solve_title" placeholder="输入标题">
@@ -23,10 +23,10 @@
         <textarea v-model = "solution.abs" placeholder="摘要"></textarea>
         <p></p>
       </div>
-      <!--div>
+      <div>
         *方案文档
-        <input type="file" name="solve.file" @change="getFile($event)">
-      </div-->
+        <input type="file" name="solve.file" @change="getFile($event)" multiple="multiplt" accept=".doc,.docx,.pdf">
+      </div>
     <input type="submit" value = "提交" />
     <!--button @click = "query">查询</button-->
     <p></p>
@@ -51,15 +51,16 @@ export default {
       de_tag: '暂无',
       de_abs: '暂无',
       solution: {
-        'title': '',
+        'title': null,
         'tag': [],
-        'abs': ''
+        'abs': null,
+        'files': ''
       }
     }
   },
   methods: {
     query () {
-      axios({//从数据库查找
+      axios({
         method: 'get',
         url: 'http://localhost:3000'
       }).then((response) => {
@@ -67,9 +68,13 @@ export default {
         console.log(response.data.data)
       })
     },
-    onSubmit () {//提交可编辑的表单
+    getFile (event) {
+      this.solution.files = event.target.files[0]
+      console.log(this.files)
+    },
+    onSubmit (event) {
       console.log('提交表单')
-      if (this.title === '') {
+      if (this.title === null) {
         alert('请输入标题')
         return false
       }
@@ -77,7 +82,7 @@ export default {
         alert('请输入标签')
         return false
       }
-      if (this.abs === '') {
+      if (this.abs === null) {
         alert('请输入摘要')
         return false
       }

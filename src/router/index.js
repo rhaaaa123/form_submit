@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import formSubmit from '@/components/form_submit'
+import formSubmit from '@/components/form_config'
 
 Vue.use(Router)
 
