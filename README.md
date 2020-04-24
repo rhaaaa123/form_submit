@@ -1,13 +1,13 @@
 # form_submit
 
-> 基于node.js+vue.js+koa2+typeorm的表单提交demo。
+> 基于node.js+nuxt.js+next.js+typeorm的表单提交demo。
 
 ## 执行安装
 ``` bash
-cd form_test //前端文件夹
+cd formClient //前端文件夹
 npm install
 
-cd form_test/Server //后端文件夹
+cd form-server //后端文件夹
 npm install //同时创建数据库
 ```
 ## 进行项目配置
