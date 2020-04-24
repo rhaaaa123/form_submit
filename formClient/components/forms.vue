@@ -142,15 +142,6 @@ export default {
     }
   },
   methods: {
-    query () {
-      axios({
-        method: 'get',
-        url: 'http://localhost:3000'
-      }).then((response) => {
-        //this.formContent = response.data.data
-        console.log(response.data.data)
-      })
-    },
     onSubmit (formName) {
       
       //console.log(formData)
@@ -161,25 +152,14 @@ export default {
           console.log('提交表单')
           let formData = JSON.stringify(this.formForm)
 
-          axios({
-            method: 'post',
-            url: 'http://localhost:3001',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            withCredentials: true,
-            data: {
+          this.$axios.post('/forms/submit'{
               Content: formData,
               Type: this.formType
             }
           })
-            .then((response) => {
-              this.formContent = response.data.data
-              let deContect = querystring.parse(response.data.data.content)
-              this.de_title = deContect.title
-              this.de_tag = deContect.tag
-              this.de_abs = deContect.abs
-              console.log(response.data.data)
+            .then((res) => {
+              if(res.statusText == 'create')
+              console.log('success!')
             })
             .catch((error) => {
               console.log(error)
