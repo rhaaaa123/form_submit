@@ -6,10 +6,19 @@ import { FormsModule } from './forms/forms.module'
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(),
+    TypeOrmModule.forRoot({
+        type: 'mysql',
+		host: 'localhost',
+		port: 3306,
+		username: 'root',
+		password: 'zxcvbnm123',
+		database: 'form',
+		logging: false,
+		synchronize: true,
+		entities:['./entities/**.entity{.ts,.js}'],
+		timezone: 'Z'
+    }),
     FormsModule
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}

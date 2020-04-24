@@ -4,7 +4,7 @@ module.exports = {
 	port: 3306,
 	username: 'root',
 	password: 'zxcvbnm123',
-	database: 'node_form',
+	database: 'form',
 	logging: false,
 	synchronize: true,
 	entities:['src/**/**.entity{.ts,.js}'],

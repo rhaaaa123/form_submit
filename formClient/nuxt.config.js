@@ -41,6 +41,7 @@ module.exports = {
   */
   modules: [
   ],
+  
   /*
   ** Build configuration
   */

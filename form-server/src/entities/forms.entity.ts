@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, CreateDateColumn, Column } from 'typeorm';
 
 @Entity()
-export class Forms {
+class Forms {
 	@PrimaryGeneratedColumn()
 	id!: number 
 
@@ -18,3 +18,5 @@ export class Forms {
 	form_content: string 
 
 }
+
+export default Forms
